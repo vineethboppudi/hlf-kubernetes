@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: orderer
+  labels:
+    app: orderer
+  namespace: raft
+spec:
+  type: ClusterIP
+  selector:
+    app: orderer
+  ports:
+    - protocol: TCP
+      port: 7050
+      targetPort: 7050
+      name: grpc
